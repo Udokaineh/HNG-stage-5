@@ -7,15 +7,16 @@ import tab from "../src/images/tab.svg";
 import camera from "../src/images/camera.svg";
 import toggle from "../src/images/toggle.svg";
 import microphone from "../src/images/microphone.svg";
-import record from "../src/images/record.svg"
-import divider from "../src/images/divider.svg"
-import pause from "../src/images/pause.svg"
-import stop from "../src/images/stop.svg"
-import mic from "../src/images/mic.svg"
-import cam from "../src/images/cam.svg"
-import trash from "../src/images/trash.svg"
-import image from "../src/images/image.svg"
-import resume from "../src/images/resume.svg"
+import record from "../src/images/record.svg";
+import divider from "../src/images/divider.svg";
+import pause from "../src/images/pause.svg";
+import stop from "../src/images/stop.svg";
+import mic from "../src/images/mic.svg";
+import cam from "../src/images/cam.svg";
+import trash from "../src/images/trash.svg";
+import image from "../src/images/image.svg";
+import resume from "../src/images/resume.svg";
+import toggleOff from "../src/images/toggle-off.svg";
 import "./App.css";
 
 const BACKEND_API_ENDPOINT = "http://localhost:5000/api/video-upload";
@@ -25,7 +26,8 @@ const Popup = () => {
   const [mediaStream, setMediaStream] = useState(null);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
-
+  const [enableAudio, setEnableAudio] = useState(true);
+  const [enableVideo, setEnableVideo] = useState(true);
 
   const toggleRecording = () => {
     if (mediaRecorder) {
@@ -39,17 +41,25 @@ const Popup = () => {
     }
   };
 
+  const toggleAudio = () => {
+    setEnableAudio(!enableAudio);
+  };
+
+  const toggleVideo = () => {
+    setEnableVideo(!enableVideo);
+  };
+
   const startRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getDisplayMedia({
-        video: true,
-        audio: true,
+        video: enableVideo,
+        audio: enableAudio,
       });
       setMediaStream(stream);
 
       // Create a MediaRecorder instance with MP4 MIME type
       const recordedChunks = [];
-      const recorder = new MediaRecorder(stream, {mimeType: "video/webm"});
+      const recorder = new MediaRecorder(stream, { mimeType: "video/webm" });
       setMediaRecorder(recorder);
 
       recorder.ondataavailable = (e) => {
@@ -59,7 +69,7 @@ const Popup = () => {
       };
 
       recorder.onstop = async () => {
-        const blob = new Blob(recordedChunks, { type: "video/webm"});
+        const blob = new Blob(recordedChunks, { type: "video/webm" });
         const formData = new FormData();
         formData.append("recording", blob, "recording.mp4");
 
@@ -69,10 +79,10 @@ const Popup = () => {
         });
 
         if (response.ok) {
-        console.log("Video upload successful");
-      } else {
-        console.error("Video upload failed");
-    }
+          console.log("Video upload successful");
+        } else {
+          console.error("Video upload failed");
+        }
         setIsRecording(false);
       };
       recorder.start();
@@ -123,14 +133,22 @@ const Popup = () => {
               <img src={camera} alt="camera-icon" />
               <h4>Camera</h4>
             </div>
-            <img src={toggle} alt="toggle" />
+            <img
+              onClick={toggleVideo}
+              src={enableVideo ? toggle : toggleOff}
+              alt="toggle"
+            />
           </div>
           <div className="toggle-div">
             <div className="icons">
               <img src={microphone} alt="microphone-icon" />
               <h4>Audio</h4>
             </div>
-            <img src={toggle} alt="toggle" />
+            <img
+              onClick={toggleAudio}
+              src={enableAudio ? toggle : toggleOff}
+              alt="toggle"
+            />
           </div>
           <button onClick={startRecording} className="popup-button">
             Start Recording
@@ -148,12 +166,12 @@ const Popup = () => {
             <img src={divider} alt="divider-icon" />
             <div className="overlay-icon">
               <img
-              onClick={toggleRecording}
-               src={isPaused ? resume : pause}
+                onClick={toggleRecording}
+                src={isPaused ? resume : pause}
                 className="overlay-img"
                 alt="pause-icon"
               />
-              {isPaused ? (<h5>Paused</h5>):(<h5>Play</h5>)}
+              {isPaused ? <h5>Paused</h5> : <h5>Play</h5>}
             </div>
             <div className="overlay-icon">
               <img
