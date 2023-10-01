@@ -2,6 +2,7 @@ import React from "react";
 import exlogo from "../src/images/exlogo.svg";
 import google from "../src/images/google.svg";
 import facebook from "../src/images/facebook.svg";
+import { Link } from "react-router-dom"
 import "./App.css";
 
 const SignIn = () => {
@@ -33,7 +34,9 @@ const SignIn = () => {
           <input placeholder="Enter your email address" />
           <p>Password</p>
           <input placeholder="Enter your Password" />
+          <Link to="/VideoRepository">
           <button>Sign Up</button>
+          </Link>
         </div>
       </div>
     </div>

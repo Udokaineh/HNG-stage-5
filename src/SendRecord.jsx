@@ -2,6 +2,7 @@ import React from "react";
 import closeCircle from "../src/images/close-circle.svg";
 import success from "../src/images/success.svg";
 import RecordReady from "./RecordReady.jsx";
+import { Link } from "react-router-dom"
 
 const SendRecord = () => {
   return (
@@ -20,7 +21,7 @@ const SendRecord = () => {
             </p>
             <button className="ready-button">Save Video</button>
             <h5 className="ready-link">
-              Don’t have an account? <a href="#home">Create account</a>
+              Don’t have an account? <Link to="/SignIn">Create account</Link>
             </h5>
           </div>
         </div>

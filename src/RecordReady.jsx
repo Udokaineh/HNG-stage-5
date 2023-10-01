@@ -8,6 +8,7 @@ import telegram from "../src/images/telegram.svg";
 import Transcript from "./Transcript.jsx";
 import axios from "axios"
 import Footer from "./Footer.jsx";
+import { Link } from "react-router-dom"
 
 
 const BACKEND_VIDEO_ENDPOINT = ""
@@ -89,7 +90,9 @@ const RecordReady = () => {
           <video controls src={videoURL} width="650" height="200" />
           </div>
           <div className="ready-buttonn">
+            <Link to="/VideoView">           
             <button>Expand</button>
+            </Link> 
           </div>
           <Transcript />
         </div>
@@ -101,7 +104,7 @@ const RecordReady = () => {
         </h3>
         <button>Save Video</button>
         <h4>
-          Don’t have an account? <a href="#home">Create account</a>
+          Don’t have an account? <Link to="/SignIn">Create account</Link>
         </h4>
       </div>
       <Footer />
