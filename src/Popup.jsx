@@ -73,7 +73,8 @@ const Popup = () => {
         // Send the blob data to the server
         const formData = new FormData();
         formData.append("recording", blob, "recording.webm");
-        console.log(formData);
+        console.log("myBlob", blob)
+        console.log("myFormData", formData);
 
         // To access and log individual fields
         console.log("Recording Field:", formData.get("recording"));
