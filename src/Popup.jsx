@@ -58,13 +58,15 @@ const Popup = () => {
       });
       setMediaStream(stream);
 
-      const recordedChunks = [];
       const recorder = new MediaRecorder(stream, { mimeType: "video/webm" });
+      const recordedChunks = [];
       setMediaRecorder(recorder);
       recorder.ondataavailable = (e) => {
+        console.log("Data available:", e.data.size);
         if (e.data.size > 0) {
           recordedChunks.push(e.data);
         }
+        console.log("recordedChunks:", recordedChunks)
       };
       recorder.onstop = async () => {
         const blob = new Blob(recordedChunks, { type: "video/webm" });
