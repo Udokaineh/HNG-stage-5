@@ -67,8 +67,9 @@ body {
   flex-direction: row;
   column-gap: 14px;
 }
+
 .set-close-div img {
- width: 24px;
+  width: 24px;
 }
 
 .monitor-tab-div {
@@ -114,4 +115,63 @@ body {
   font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
+}
+
+/* overlay */
+.overlay-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* row-gap: 4px; */
+}
+
+.overlay-icon img {
+  width: 1.875rem;
+}
+
+.overlay-img {
+  margin-bottom: 4px;
+}
+
+.overlay-trash {
+  margin-bottom: 20px;
+  width: 1.875rem;
+}
+
+.overlay-icons {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 4px solid #E4E4E4;
+  padding: 0.5rem 0.75rem;
+  border-radius: 7.5rem;
+  column-gap: 8px;
+  background-color: #141414;
+}
+
+.overlay-icons p {
+  color: #fff;
+  font-size: 14px;
+}
+
+.image {
+  width: 3.75rem;
+}
+
+.overlay-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: fit-content;
+}
+
+.overlay-style {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
 }
