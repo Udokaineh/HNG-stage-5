@@ -40,7 +40,8 @@ const WebStore = () => {
               <p>80,000+ users</p>
             </div>
           </div>
-          <button className="chrome-btn">Add to Chrome</button>
+          <a href="https://drive.google.com/drive/folders/1ZNYh6avxz7ETVcD20JF9vfsDekvp_53N?usp=sharing">
+          <button className="chrome-btn">Add to Chrome</button></a>
         </div>
         <div className="hr"></div>
         <div className="webstore-links">

@@ -18,7 +18,6 @@ const Hero = () => {
         </p>
         <Link to="/WebStore">
           <button>
-            {/* <a href=""></a> */}
             Install HelpMeOut
             <img src={arrowIcon} alt="arrow-icon" />
           </button>
