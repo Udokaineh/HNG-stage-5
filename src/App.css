@@ -1191,3 +1191,20 @@ body {
   justify-content: center;
   column-gap: 8px;
 }
+
+.signout {
+  background-color: #120B48;
+  color:#fff;
+  border: none;
+  outline: none;
+  padding: 14px 24px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 4px;
+}
+.fullvideorepo-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 40px;
+}

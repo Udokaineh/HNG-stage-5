@@ -2,22 +2,19 @@ import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import LandingPage from "./LandingPage.jsx"
 import SignIn from "./SignIn.jsx"
-import FullVideoRepo from "./FullVideoRepo.jsx"
 import VideoView from "./VideoView.jsx";
 import RecordReady from "./RecordReady.jsx"
 import SendRecord from "./SendRecord.jsx"
 import WebStore from "./WebStore.jsx"
 import Overlay from "./Overlay.jsx"
 import Popup from "./Popup.jsx";
+import FullVideoRepo from "./FullVideoRepo.jsx"
 import './App.css';
 
 
 
 function App() {
     return (
-    //   <div>
-    //     <Popup />
-    //   </div>
         <Router>
             <div className="App">
                 <Routes>
